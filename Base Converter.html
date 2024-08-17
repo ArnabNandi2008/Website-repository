@@ -6,7 +6,7 @@
     <title>Javascript</title>
     <script>
         function DecToBinInt(n) {
-            a = n
+            a = parseInt(n)
             o = ""
             while (a != 0) {
                 b = (a%2)
@@ -17,18 +17,42 @@
             return o
         }
         function DecToHexInt(n) {
-            a = n
+            a = parseInt(n)
             o = ""
             while (a != 0) {
-                b = (a%8)
-                o = b.toString() + o
-                a = parseInt(a/8)
+                b = (a%16)
+                c = false
+                if (b >= 10) {
+                    if (b == 10) {
+                        b = "A"
+                    }
+                    else if (b == 11) {
+                        b = "B"
+                    }
+                    else if (b == 12) {
+                        b = "C"
+                    }
+                    else if (b == 13) {
+                        b = "D"
+                    }
+                    else if (b == 14) {
+                        b = "E"
+                    }
+                    else {
+                        b = "F"
+                    }
+                    o = b + o
+                }
+                else {
+                    o = b.toString() + o
+                }
+                a = parseInt(a/16)
             }
             o = parseInt(o)
             return o
         }
         function DecToOctInt(n) {
-            a = n
+            a = parseInt(n)
             o = ""
             while (a != 0) {
                 b = (a%8)
@@ -39,8 +63,8 @@
             return o
         }
         function Exchange() {
-            i = parseInt(document.frm.i.value)
-            o = parseInt(document.frm.o.value)
+            i = document.frm.i.value
+            o = document.frm.o.value
             i_d = document.frm.i_d.value
             o_d = document.frm.o_d.value
             a = i
@@ -51,8 +75,8 @@
             document.frm.o_d.value = b
         }
         function Submit() {
-            i = parseInt(document.frm.i.value)
-            o = parseInt(document.frm.o.value)
+            i = document.frm.i.value
+            o = document.frm.o.value
             i_d = document.frm.i_d.value
             o_d = document.frm.o_d.value
             o = 0
