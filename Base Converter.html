@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javascript</title>
+    <script>
+        function DecToBinInt(n) {
+            a = n
+            o = ""
+            while (a != 0) {
+                b = (a%2)
+                o = b.toString() + o
+                a = parseInt(a/2)
+            }
+            o = parseInt(o)
+            return o
+        }
+        function DecToHexInt(n) {
+            a = n
+            o = ""
+            while (a != 0) {
+                b = (a%8)
+                o = b.toString() + o
+                a = parseInt(a/8)
+            }
+            o = parseInt(o)
+            return o
+        }
+        function DecToOctInt(n) {
+            a = n
+            o = ""
+            while (a != 0) {
+                b = (a%8)
+                o = b.toString() + o
+                a = parseInt(a/8)
+            }
+            o = parseInt(o)
+            return o
+        }
+        function Exchange() {
+            i = parseInt(document.frm.i.value)
+            o = parseInt(document.frm.o.value)
+            i_d = document.frm.i_d.value
+            o_d = document.frm.o_d.value
+            a = i
+            b = i_d
+            document.frm.i.value = o
+            document.frm.o.value = a
+            document.frm.i_d.value = o_d
+            document.frm.o_d.value = b
+        }
+        function Submit() {
+            i = parseInt(document.frm.i.value)
+            o = parseInt(document.frm.o.value)
+            i_d = document.frm.i_d.value
+            o_d = document.frm.o_d.value
+            o = 0
+            if (i_d == o_d) {
+                o = document.frm.i.value
+            }
+            else if (i_d == "d" && o_d == "b") {
+                o = DecToBinInt(i)
+            }
+            else if (i_d == "d" && o_d == "o") {
+                o = DecToOctInt(i)
+            }
+            document.frm.o.value = o
+        }
+    </script>
+</head>
+<body>
+    <h1 style="text-align: center; color: red;"><u>Base Converter</u></h1>
+    <form name="frm">
+        <table>
+            <tr>
+                <td><label>From : </label></td>
+                <td><input type="text" name="i"></td>
+                <td>
+                    <select name="i_d">
+                        <!-- <option value="b">Binary</option> -->
+                        <option value="d">Decimal</option>
+                        <!-- <option value="h">Hexadecimal</option> -->
+                        <!-- <option value="o">Octal</option> -->
+                    </select>
+                </td>
+            </tr>
+            <tr><td colspan="3"><input type="button" value="Exchange" onClick="Exchange()"></td></tr>
+            <tr>
+                <td><label>To : </label></td>
+                <td><input type="text" name="o"></td>
+                <td>
+                    <select name="o_d">
+                        <option value="b">Binary</option>
+                        <option value="d">Decimal</option>
+                        <!-- <option value="h">Hexadecimal</option> -->
+                        <option value="o">Octal</option>
+                    </select>
+                </td>
+            </tr>
+            <tr><td colspan="3"><input type="button" value="Submit" onClick="Submit()"></td></tr>
+        </table>
+    </form>
+</body>
+</html>
