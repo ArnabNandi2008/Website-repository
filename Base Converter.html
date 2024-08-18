@@ -48,7 +48,7 @@
                 }
                 a = parseInt(a/16)
             }
-            o = parseInt(o)
+            o = o
             return o
         }
         function DecToOctInt(n) {
@@ -89,6 +89,9 @@
             else if (i_d == "d" && o_d == "o") {
                 o = DecToOctInt(i)
             }
+            else if (i_d == "d" && o_d == "h") {
+                o = DecToHexInt(i)
+            }
             document.frm.o.value = o
         }
     </script>
@@ -117,7 +120,7 @@
                     <select name="o_d">
                         <option value="b">Binary</option>
                         <option value="d">Decimal</option>
-                        <!-- <option value="h">Hexadecimal</option> -->
+                        <option value="h">Hexadecimal</option>
                         <option value="o">Octal</option>
                     </select>
                 </td>
